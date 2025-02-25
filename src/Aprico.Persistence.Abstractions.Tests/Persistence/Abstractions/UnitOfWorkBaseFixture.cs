@@ -24,11 +24,11 @@ using System.Threading.Tasks;
 
 namespace Aprico.Persistence.Abstractions;
 
-public abstract class UnitOfWorkFixture
+public abstract class UnitOfWorkBaseFixture
 {
 	#region Nested Type: CommitAsync
 
-	public class CommitAsync : UnitOfWorkFixture
+	public class CommitAsync : UnitOfWorkBaseFixture
 	{
 		[SuppressMessage("ReSharper", "AccessToDisposedClosure")]
 		[Fact]
@@ -57,7 +57,7 @@ public abstract class UnitOfWorkFixture
 
 	#region Nested Type: Dispose
 
-	public class Dispose : UnitOfWorkFixture
+	public class Dispose : UnitOfWorkBaseFixture
 	{
 		[Fact]
 		public void DisposeCanBeCalledMultipleTimes()
@@ -74,7 +74,7 @@ public abstract class UnitOfWorkFixture
 
 	#region Nested Type: UnitOfWorkDummy
 
-	private sealed class UnitOfWorkDummy : UnitOfWork
+	private sealed class UnitOfWorkDummy : UnitOfWorkBase
 	{
 		#region Base Class Member Overrides
 
