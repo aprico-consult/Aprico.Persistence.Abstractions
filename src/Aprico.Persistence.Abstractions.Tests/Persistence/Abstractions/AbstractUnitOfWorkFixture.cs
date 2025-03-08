@@ -24,17 +24,17 @@ using System.Threading.Tasks;
 
 namespace Aprico.Persistence.Abstractions;
 
-public abstract class UnitOfWorkBaseFixture
+public abstract class AbstractUnitOfWorkFixture
 {
 	#region Nested Type: CommitAsync
 
-	public class CommitAsync : UnitOfWorkBaseFixture
+	public class CommitAsync : AbstractUnitOfWorkFixture
 	{
 		[SuppressMessage("ReSharper", "AccessToDisposedClosure")]
 		[Fact]
 		public async Task ThrowsWhenAlreadyCommitted()
 		{
-			using var unitOfWork = new UnitOfWorkDummy();
+			using var unitOfWork = new AbstractUnitOfWorkDummy();
 			await unitOfWork.CommitAsync();
 			await Invoking(async () => await unitOfWork.CommitAsync())
 				.Should()
@@ -45,7 +45,7 @@ public abstract class UnitOfWorkBaseFixture
 		[Fact]
 		public async Task ThrowsWhenCalledAfterDispose()
 		{
-			var unitOfWork = new UnitOfWorkDummy();
+			var unitOfWork = new AbstractUnitOfWorkDummy();
 			unitOfWork.Dispose();
 			await Invoking(async () => await unitOfWork.CommitAsync())
 				.Should()
@@ -57,12 +57,12 @@ public abstract class UnitOfWorkBaseFixture
 
 	#region Nested Type: Dispose
 
-	public class Dispose : UnitOfWorkBaseFixture
+	public class Dispose : AbstractUnitOfWorkFixture
 	{
 		[Fact]
 		public void DisposeCanBeCalledMultipleTimes()
 		{
-			var unitOfWork = new UnitOfWorkDummy();
+			var unitOfWork = new AbstractUnitOfWorkDummy();
 			unitOfWork.Dispose();
 			Invoking(() => unitOfWork.Dispose())
 				.Should()
@@ -74,7 +74,7 @@ public abstract class UnitOfWorkBaseFixture
 
 	#region Nested Type: UnitOfWorkDummy
 
-	private sealed class UnitOfWorkDummy : UnitOfWorkBase
+	private sealed class AbstractUnitOfWorkDummy : AbstractUnitOfWork
 	{
 		#region Base Class Member Overrides
 

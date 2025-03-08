@@ -30,7 +30,7 @@ namespace Aprico.Persistence.Abstractions;
 /// <see cref="CommitAsync"/> before, the underlying transaction will be rolled back.
 /// </summary>
 [SuppressMessage("ReSharper", "MemberCanBeInternal", Justification = "Public API.")]
-public abstract class UnitOfWorkBase : IUnitOfWork
+public abstract class AbstractUnitOfWork : IUnitOfWork
 {
 	#region IUnitOfWork Members
 
@@ -91,7 +91,7 @@ public abstract class UnitOfWorkBase : IUnitOfWork
 	#endregion
 
 	/// <summary>
-	/// Releases all resources used by the current instance of the <see cref="UnitOfWorkBase"/> class. If
+	/// Releases all resources used by the current instance of the <see cref="AbstractUnitOfWork"/> class. If
 	/// <see cref="Dispose"/> is called before <see cref="CommitAsync"/>, the transaction will be rolled back.
 	/// </summary>
 	/// <param name="disposing">
