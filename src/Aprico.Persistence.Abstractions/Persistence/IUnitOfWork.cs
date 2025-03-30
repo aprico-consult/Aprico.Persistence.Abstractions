@@ -22,7 +22,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aprico.Persistence.Abstractions;
+namespace Aprico.Persistence;
 
 /// <summary>
 /// Defines an abstraction for a unit of work pattern, providing mechanisms to coordinate, persist, and finalize

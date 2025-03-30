@@ -18,7 +18,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace Aprico.Persistence.Abstractions;
+namespace Aprico.Persistence;
 
 /// <summary>Represents a factory abstraction for creating instances of <see cref="IUnitOfWork"/>.</summary>
 /// <remarks>

@@ -22,7 +22,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aprico.Persistence.Abstractions;
+namespace Aprico.Persistence;
 
 public abstract class AbstractUnitOfWorkFixture
 {
